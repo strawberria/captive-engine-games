@@ -23,4 +23,5 @@ jobs:
           python ./generate_preview.py      
       - uses: stefanzweifel/git-auto-commit-action@v4
         with:
+          token: ${{ secrets.pat }}
           commit_message: Modified preview.json
