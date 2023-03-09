@@ -1,6 +1,5 @@
 name: Captive-Engine Generate Preview
 run-name: ${{ github.actor }} is generating captive-engine preview.json 
-description: Generate preview.json for captive-engine games
 on: [push]
 jobs:
   Generate-Preview:
