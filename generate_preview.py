@@ -4,7 +4,7 @@ from os import popen
 
 # Iterate over games within ./games/**/*.prj
 game_previews = []
-relative_game_filepaths = glob.glob("./games/**/*.prj", recursive=True)
+relative_game_filepaths = glob.glob("./games/**/*.json", recursive=True)
 for relative_game_filepath in relative_game_filepaths:
     print(f">> Generating preview for {relative_game_filepath}")
 
