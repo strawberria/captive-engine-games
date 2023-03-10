@@ -12,7 +12,7 @@ jobs:
       - uses: actions/checkout@v3
         with:
           token: ${{ secrets.pat }}
-      - name: Set up Python ${{ Python matrix.python-version }}
+      - name: Set up Python ${{ matrix.python-version }}
         uses: actions/setup-python@v4
         with:
           python-version: ${{ matrix.python-version }}
@@ -20,7 +20,7 @@ jobs:
         run: |
           python -m pip install --upgrade pip
           if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
-      - name: Generate preview.json for ${GITHUB_REF##*/}
+      - name: Generate preview.json for branch ${{GITHUB_REF##*/}}
         run: |
           python ./generate_preview.py      
       - uses: stefanzweifel/git-auto-commit-action@v4
