@@ -2,9 +2,9 @@ import glob
 from json import dump, load
 from os import popen
 
-# Iterate over games within ./games/**/*.prj
+# Iterate over games within ./games/**/game.json
 game_previews = []
-relative_game_filepaths = glob.glob("./games/**/*.json", recursive=True)
+relative_game_filepaths = glob.glob("./games/**/game.json", recursive=True)
 for relative_game_filepath in relative_game_filepaths:
     print(f">> Generating preview for {relative_game_filepath}")
 
@@ -32,6 +32,7 @@ for relative_game_filepath in relative_game_filepaths:
         game_preview["author"] = game_data["game"]["metadata"]["author"]
         game_preview["version"] = game_data["game"]["metadata"]["version"]
         game_preview["synopsis"] = game_data["game"]["metadata"]["synopsis"]
+        game_preview["path"] = relative_game_filepath
 
         print(f"'{relative_game_filepath}' found '{game_preview['title']}' by '{game_preview['author']}' with version '{game_preview['version']}'")
     
